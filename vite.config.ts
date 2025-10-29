@@ -52,7 +52,7 @@
     },
     build: {
       target: 'esnext',
-      outDir: 'build',
+      outDir: 'dist',
       rollupOptions: {
         external: ["src/supabase/functions/**"]
       },
