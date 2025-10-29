@@ -1,21 +1,12 @@
-# React + TypeScript + Vite
+# AI Fiscal Assistant 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An AI-powered financial and tax assistant designed to help elderly users navigate bureaucratic and legal processes such as tax declarations, government forms, and personal finance management. This project focuses on accessibility, simplicity, and trust, providing clear guidance and automation for tasks that are often overwhelming for the common public and the non-digital natives.
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+## Key Features (planned):
+- AI-based support for income tax declarations and payments
+- Document scanning and intelligent data extraction
+- Step-by-step guidance through fiscal and legal processes
+- Personalized alerts and reminders for key deadlines
+- Intuitive interface designed for older adults
 
-## Deploy Your Own
-
-Deploy your own Vite project with Vercel.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/framework-boilerplates/vite-react&template=vite-react)
-
-_Live Example: https://vite-react-example.vercel.app_
-
-### Deploying From Your Terminal
-
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
-```shell
-$ vercel
-```
+This is an early-stage project. Contributions, feedback, and ideas are welcome.
