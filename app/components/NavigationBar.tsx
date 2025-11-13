@@ -1,4 +1,6 @@
+"use client"
 import { NavigationButton } from "./ui/navigation-button";
+
 import {
   MessageSquare,
   FileText,
@@ -51,6 +53,7 @@ const navigationItems = [
 
 
 export const NavigationBar = () => {
+    
   return (
     <div className="hidden px-4 py-3 md:flex items-center space-x-1">
         {
