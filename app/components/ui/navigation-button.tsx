@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cva} from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
 
 interface NavigationButtonProps {
