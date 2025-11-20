@@ -11,12 +11,18 @@ import {
 } from "lucide-react";
 
 type AppView =
-  | "chat"
-  | "invoices"
-  | "tax-models"
-  | "documents"
-  | "profile"
-  | "plans";
+  | "/"
+  | "/invoices"
+  | "/tax-models"
+  | "/documents"
+  | "/profile"
+  | "/resources"
+  | "/settings/profile"
+  | "/settings/appearance"
+  | "/settings/security"
+  | "/settings/plans"
+  ;
+
 
 const navigationItems = [
     {
@@ -45,7 +51,7 @@ const navigationItems = [
       icon: CreditCard,
     },
     { 
-      path: "/profile" as AppView, 
+      path: "/settings/profile" as AppView, 
       label: "Perfil", 
       icon: User 
     }
@@ -66,7 +72,6 @@ export const NavigationBar = () => {
             />
         ))
         }        
-
     </div>
-    )
+  )
 }
