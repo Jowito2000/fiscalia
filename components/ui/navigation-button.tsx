@@ -7,7 +7,8 @@ import { cva} from "class-variance-authority";
 interface NavigationButtonProps {
   pagename: string;
   path: string;
-  icon: React.ElementType
+  icon?: React.ElementType
+  hasVariants?: boolean;
 }
 const linkVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-bold transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]  ",
@@ -32,15 +33,20 @@ const linkVariants = cva(
   },
 );
 
-export const NavigationButton = ({ pagename = "home", path = "/", icon }: NavigationButtonProps) => {
+export const NavigationButton = ({ pagename = "home", path = "/", icon, hasVariants = true }: NavigationButtonProps) => {
     const Icon = icon;
     const currentpath = usePathname();
     const isActive = currentpath === path;
+    const variantClasses = hasVariants 
+    ? linkVariants({ variant: isActive ? "default" : "ghost" }) 
+    : linkVariants({ variant: "ghost" });
     return (
     <Link
-        className= {`space-x-2 ${linkVariants({ variant: isActive ? "default" : "ghost" })}`}
+        className= {`space-x-2 ${variantClasses}`}
         href={path}>
+        {Icon && (
         <Icon className="w-4 h-4" />
+      )}
         <span>{pagename}</span>
     </Link>
     )
