@@ -1,103 +1,76 @@
-import { firstChatMessage } from '@/data/firstChatMessage';
-import { Message } from '@/model/MessageModel';
-import { ScrollArea } from '@radix-ui/react-scroll-area';
-import { useState, useEffect, useRef } from 'react'
-import { toast } from 'sonner';
+import { useChat } from '@/hooks/useChat';
+import { ChatArea } from './ui/chat-area';
+import { ChatInput } from './ui/chat-input';
+import { OnboardingTutorial } from '@/components/OnboardingTutorial';
+import { User } from '@/model/UserModel';
+import { useState, useEffect } from 'react'
 
 export function ChatInterface() {
-    const [input, setInput] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const [isRecording, setIsRecording] = useState(false);
-    const [messages, setMessages] = useState<Message[]>([
-        firstChatMessage
-    ]);
-    const scrollRef = useRef<HTMLDivElement>(null);
+  const { 
+    messages, 
+    isLoading,
+    isRecording, 
+    sendMessage, 
+    sendAudio, 
+    addAttachment, 
+    scrollRef } = useChat();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);  // Estado que controla si el usuario está autenticado
+  const [showOnboarding, setShowOnboarding] = useState(false); // Estado que controla si se muestra el tutorial de introducción
+  const [currentUser, setCurrentUser] = useState<User | null>( 
+    null,
+  ); // Estado que almacena los datos del usuario actual
 
-    const handleSendMessage = async () => {
-        if (!input.trim() || isLoading) return;
+  useEffect(() => {
+    // Verificar si hay una sesión guardada al cargar la aplicación
+    const savedSession = localStorage.getItem('fiscalIASession');
+    if (savedSession && !isAuthenticated) {
+      try {
+        const user = JSON.parse(savedSession);
+        setCurrentUser(user);
+        setIsAuthenticated(true);
+      } catch (error) {
+        console.error('Error al restaurar sesión:', error);
+        localStorage.removeItem('fiscalIASession');
+      }
+    }
+  }, []);
 
-        const userMessage: Message = {
-            id: Date.now().toString(),
-            role: 'user',
-            content: input,
-            timestamp: new Date(),
-        };
+  // Función que se ejecuta cuando el usuario completa el tutorial de introducción
+  const handleOnboardingComplete = () => {
+    setShowOnboarding(false);
+    localStorage.setItem("hasSeenOnboarding", "true");
+  };
 
-        setMessages((prev) => [...prev, userMessage]);
-        setInput('');
-        setIsLoading(true);
+  // Esto se ejecuta cuando cambia el estado de autenticación y al cargar la aplicación por primera vez
+  useEffect(() => {
+    // Comprobar si el usuario ya ha visto el tutorial de introducción de las variables locales
+    const hasSeenOnboarding = localStorage.getItem(
+      "hasSeenOnboarding",
+    );
+    // Si no ha visto el tutorial y está autenticado, mostrar el tutorial
+    if (!hasSeenOnboarding) {
+      setShowOnboarding(true);
+    }
+  }, [isAuthenticated]);
 
-        try {
-            // Llamar al LLM con el contexto y demas
-            // Recibir la respuesta
-            //setMessages((prev) => [...prev, assistantMessage]);
 
-        } catch (error) {
-            console.error('Error sending message:', error);
-            toast.error('Error de conexión con el chat');
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        if (scrollRef.current) {
-        scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-        }
-    }, [messages]);
-
-    const handleVoiceRecording = () => {
-        if (isRecording) {
-            setIsRecording(false);
-            toast.info('Grabación de voz detenida');
-            // Aquí se implementaría la transcripción de voz
-        } else {
-            setIsRecording(true);
-            toast.info('Grabación de voz iniciada');
-            // Aquí se iniciaría la grabación de voz
-        }
-    };
-
-    const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const files = e.target.files;
-        if (!files || files.length === 0) return;
-
-        const file = files[0];
-        const fileType = file.type.includes('pdf')
-        ? 'PDF'
-        : file.type.includes('image')
-        ? 'Imagen'
-        : 'Documento';
-
-        toast.success(`${fileType} "${file.name}" cargado. Procesando...`);
-
-        // Aquí se implementaría la carga y procesamiento del archivo
-        const userMessage: Message = {
-            id: Date.now().toString(),
-            role: 'user',
-            content: `He adjuntado un archivo: ${file.name}`,
-            timestamp: new Date(),
-            attachments: [{ type: fileType, name: file.name }],
-        };
-
-        setMessages((prev) => [...prev, userMessage]);
-
-        setTimeout(() => {
-            const assistantMessage: Message = {
-                id: (Date.now() + 1).toString(),
-                role: 'assistant',
-                content: `He recibido tu ${fileType.toLowerCase()}. ¿Qué información necesitas extraer de este documento?`,
-                timestamp: new Date(),
-            };
-            setMessages((prev) => [...prev, assistantMessage]);
-        }, 1000);
-    };
-
-    return (
-        <div className="flex flex-col h-full">
-            <ScrollArea className="flex-1 p-4" ref={scrollRef}>
-            </ScrollArea>
-        </div>
-    )
-
+  return (
+    <>
+        {/* h-screen -> toda la altura, flex, en columnas y con fondo gris clarito */}
+        {/* Si hay que enseñar el onBoarding se enseña */}
+        {showOnboarding && (
+        <OnboardingTutorial
+            onComplete={handleOnboardingComplete}
+        />
+        )}
+        <main className="flex-1 overflow-hidden">
+            <div className="flex flex-col h-full bg-gray-100">
+                <ChatArea messages={messages} isLoading={isLoading} scrollRef={scrollRef} />
+                <div className="border-t bg-white p-4">
+                    <ChatInput onSend={sendMessage} isRecording={isRecording} onAudioRecord={sendAudio} onFileUpload={addAttachment} isLoading={isLoading} />
+                </div>
+            </div>
+        </main>
+    </>
+  );
 }
