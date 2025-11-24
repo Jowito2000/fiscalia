@@ -1,4 +1,4 @@
-import {HeaderBar} from "../components/HeaderBar";
+import {HeaderBar} from "../../components/HeaderBar";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return( 
