@@ -9,20 +9,20 @@ import { SettingsPanel } from "./SettingsPanel";
 
 export const HeaderBar = () => {
 
-  const [settingsDisplay, setSettingsDisplay] = useState(false);  
+  const [settingsDisplay, setSettingsDisplay] = useState(false);
 
   return (
     <header className="bg-white border-b sticky top-0 z-40">
-       <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between">
         <HomeButton />
         <NavigationBar />
-        <Settings onClick={() => setSettingsDisplay(!settingsDisplay)} 
+        <Settings onClick={() => setSettingsDisplay(!settingsDisplay)}
           className="mr-5"
-          />
-       </div>              
-       <div>
-          {settingsDisplay && <SettingsPanel />}
-       </div>
+        />
+      </div>
+      <div>
+        {settingsDisplay && <SettingsPanel />}
+      </div>
     </header>
   )
 }
