@@ -1,7 +1,9 @@
+import InvoicesScreen from "@/components/invoices/InvoicesScreen";
+
 export default function Invoices() {
   return (
     <div>
-      <h1>Welcome to the Invoices screen</h1>
+      <InvoicesScreen />
     </div>
   );
 }
