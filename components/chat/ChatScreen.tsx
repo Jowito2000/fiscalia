@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { OnboardingTutorial } from '@/components/OnboardingTutorial';
-import { ChatInput } from '@/components/ui/chat/ChatInput';
-import { MessageList } from '@/components/ui/chat/MessageList';
+import { ChatInput } from '@/components/chat/ChatInput';
+import { MessageList } from '@/components/chat/MessageList';
 import { useChat } from '@/hooks/useChat';
 
-export function ChatInterface() {
+export function ChatScreen() {
   const [showOnboarding, setShowOnboarding] = useState(false);
 
   const {

@@ -1,9 +1,9 @@
 'use client'
 
-import { ChatInterface } from '@/components/ChatInterface';
+import { ChatScreen } from '@/components/chat/ChatScreen';
 
 export default function Chatbot() {
   return (
-    <ChatInterface/>
+    <ChatScreen />
   )
 }
