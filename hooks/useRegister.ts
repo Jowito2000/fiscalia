@@ -16,7 +16,7 @@ export function useRegister() {
       toast.success("Cuenta creada exitosamente");
       //localStorage.setItem("fiscalIASession", JSON.stringify(data.user));
 
-      router.push("/"); // ← ESTA ES LA NAVEGACIÓN CORRECTA EN CLIENTE
+      router.push("/");
 
     } catch {
       toast.error("Error de conexión");
