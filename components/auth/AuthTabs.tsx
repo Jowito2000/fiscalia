@@ -24,7 +24,6 @@ export function AuthTabs() {
           <RegisterForm />
         </div>
       </TabsContent>
-
     </Tabs>
   );
 }
