@@ -85,7 +85,7 @@ export function ClientSelector({ clients, invoiceData, setInvoiceData, addClient
                   <Label>Seleccionar Cliente</Label>
                   <Select
                     value={invoiceData.clientId}
-                    onValueChange={(value) => setInvoiceData({ ...invoiceData, clientId: value })}
+                    onValueChange={(value : string) => setInvoiceData({ ...invoiceData, clientId: value })}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Elige un cliente" />
