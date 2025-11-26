@@ -1,17 +1,11 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { Message } from '@/model/MessageModel';
+import { firstChatMessage } from '@/data/firstChatMessage';
 
 export function useChat() {
   const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      role: 'assistant',
-      content:
-        '¡Hola! Soy tu asistente de Fiscal IA. Puedo ayudarte con dudas sobre finanzas, impuestos, facturación y modelos fiscales. ¿En qué puedo ayudarte hoy?',
-      timestamp: new Date(),
-      sources: ['Sistema Fiscal IA'],
-    },
+    firstChatMessage
   ]);
 
   const [input, setInput] = useState('');
