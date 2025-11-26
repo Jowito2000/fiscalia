@@ -1,5 +1,5 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { SettingsSidebar } from "@/components/SettingsSidebar";
+import { SettingsSidebar } from "@/components/settings-sidebar/SettingsSidebar";
 import IconPlans from "@/assets/svgs/icon-plans";
 
 
@@ -8,8 +8,8 @@ const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
   return( 
     <SidebarProvider>
       <SettingsSidebar />
-      <main>        
-        <IconPlans strokeWidth={2}/>
+      <main>              
+        {/*<SidebarTrigger /> //Information needed => implementation according to figma?  */}  
         {children}
       </main>
     </SidebarProvider>

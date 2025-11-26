@@ -1,7 +1,10 @@
+import ProfileLayout from "../layout";
+import ProfileScreen  from "@/components/profile/profileScreen";
+
 export default function MyData() {
   return (
     <div>
-      <h1>Welcome to the Profile screen</h1>
+      <ProfileScreen />
     </div>
   );
 }

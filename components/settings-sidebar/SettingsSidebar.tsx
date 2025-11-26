@@ -1,5 +1,5 @@
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar"
-import { SunMoon, UserPen } from "lucide-react";
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "../ui/sidebar"
+import { SunMoon, UserPen, Shield } from "lucide-react";
 import IconPlans from '@/assets/svgs/icon-plans.js';
 // Menu items.
 const items = [
@@ -21,7 +21,7 @@ const items = [
   {
     title: "Seguridad",
     url: "/settings/security",
-    icon: UserPen,
+    icon: Shield,
   }
   
 
