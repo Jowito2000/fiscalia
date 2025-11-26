@@ -35,4 +35,3 @@ export const HeaderBar = () => {
     </header>
   )
 }
-
