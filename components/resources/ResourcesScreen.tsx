@@ -2,6 +2,11 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TabAllContent } from "./TabAllContent";
+import { TabLegislationContent } from "./TabLegislationContent";
+import { TabCalendarContent } from "./TabCalendarContent";
+import { TabTributeAgencyContent } from "./TabTributeAgencyContent";
+import { TabSSContent } from "./TabSSContent";
+import { TabOthersResources } from "./TabOthersResources";
 
 export default function OfficialResources() {
   return (
@@ -25,6 +30,21 @@ export default function OfficialResources() {
 
             <TabsContent value="todas">
                 <TabAllContent />
+            </TabsContent>
+            <TabsContent value="legislacion">
+                <TabLegislationContent />
+            </TabsContent>
+            <TabsContent value="calendario">
+                <TabCalendarContent />
+            </TabsContent>
+            <TabsContent value="agencia">
+                <TabTributeAgencyContent />
+            </TabsContent>
+            <TabsContent value="ss">
+                <TabSSContent />
+            </TabsContent>
+            <TabsContent value="otros">
+                <TabOthersResources />
             </TabsContent>
         </Tabs>
     </div>
