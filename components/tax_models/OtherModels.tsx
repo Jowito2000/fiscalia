@@ -3,6 +3,7 @@ import { OtherModelCard } from "./OtherModelCard";
 
 export function OtherModels() {
     return (
+      <div className="space-y-6 mt-6">
         <Card>
           <CardHeader>
             <CardTitle>Otros Modelos Fiscales</CardTitle>
@@ -19,5 +20,6 @@ export function OtherModels() {
             </div>
           </CardContent>
         </Card>
+      </div>
     )
 }

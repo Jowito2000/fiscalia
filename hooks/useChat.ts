@@ -29,7 +29,7 @@ export function useChat() {
 
     try {
       // Simulación de backend real
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     } catch (error) {
       console.error(error);
       toast.error('Error de conexión con el chat');
