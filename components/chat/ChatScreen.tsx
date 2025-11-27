@@ -26,34 +26,36 @@ export function ChatScreen() {
   }, []);
 
   return (
-    <div className="h-full flex flex-col bg-gray-50">
+    <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="h-full flex flex-col bg-gray-50">
 
-      {/* Onboarding modal */}
-      {showOnboarding && (
-        <OnboardingTutorial
-          onComplete={() => {
-            setShowOnboarding(false);
-            localStorage.setItem('hasSeenOnboarding', 'true');
-          }}
-        />
-      )}
+        {/* Onboarding modal */}
+        {showOnboarding && (
+          <OnboardingTutorial
+            onComplete={() => {
+              setShowOnboarding(false);
+              localStorage.setItem('hasSeenOnboarding', 'true');
+            }}
+          />
+        )}
 
-      {/* Chat */}
-      <main className="h-full flex flex-col bg-gray-100">
-        {/* Lista de mensajes con scroll propio */}
-        <MessageList messages={messages} isLoading={isLoading} />
+        {/* Chat */}
+        <main className="h-full flex flex-col bg-gray-100">
+          {/* Lista de mensajes con scroll propio */}
+          <MessageList messages={messages} isLoading={isLoading} />
 
-        {/* Input */}
-        <ChatInput
-          input={input}
-          isLoading={isLoading}
-          isRecording={isRecording}
-          onInputChange={setInput}
-          onSend={sendMessage}
-          onFileUpload={uploadFile}
-          onToggleRecording={toggleRecording}
-        />
-      </main>
+          {/* Input */}
+          <ChatInput
+            input={input}
+            isLoading={isLoading}
+            isRecording={isRecording}
+            onInputChange={setInput}
+            onSend={sendMessage}
+            onFileUpload={uploadFile}
+            onToggleRecording={toggleRecording}
+          />
+        </main>
+      </div>
     </div>
   );
 }
