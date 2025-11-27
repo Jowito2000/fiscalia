@@ -1,7 +1,9 @@
+import ResourcesScreen from "@/components/resources/ResourcesScreen";
+
 export default function Resources() {
   return (
     <div>
-      <h1>Welcome to the Resources screen</h1>
+      <ResourcesScreen />
     </div>
   );
 }
