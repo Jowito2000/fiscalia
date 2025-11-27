@@ -30,6 +30,6 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     "global.d.ts"
-  ],
+, "assets/svgs/icon-plans.js"  ],
   "exclude": ["node_modules"]
 }

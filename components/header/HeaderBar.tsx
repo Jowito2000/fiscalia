@@ -1,13 +1,13 @@
 "use client"
-import { HomeButton } from "./ui/home-button";
+import { HomeButton } from "../ui/home-button";
 import { NavigationBar } from "./NavigationBar";
 import { Settings } from "lucide-react";
 import { Popover,
   PopoverContent,
-  PopoverTrigger, } from "./ui/popover";
+  PopoverTrigger, } from "../ui/popover";
 
-import { NavigationButton } from "./ui/navigation-button";
-import { Switch } from "./ui/switch";
+import { NavigationButton } from "../ui/navigation-button";
+import { Switch } from "../ui/switch";
 
 export const HeaderBar = () => {
 
