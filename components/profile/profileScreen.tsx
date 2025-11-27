@@ -8,7 +8,7 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 
-export default function rofileScreen() { 
+export default function ProfileScreen() { 
     return (
         <div className="flex h-screen">
 

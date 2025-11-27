@@ -1,5 +1,5 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { SettingsSidebar } from "@/components/settings-sidebar/SettingsSidebar";
+import { SettingsSidebar } from "@/components/settings-sidebar/settingsSidebar";
 import IconPlans from "@/assets/svgs/icon-plans";
 
 

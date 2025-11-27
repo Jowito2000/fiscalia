@@ -1,5 +1,5 @@
 import ProfileLayout from "../layout";
-import ProfileScreen  from "@/components/profile/profileScreen";
+import ProfileScreen  from "@/components/profile/ProfileScreen";
 
 export default function MyData() {
   return (
