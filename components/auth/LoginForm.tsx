@@ -11,6 +11,8 @@ import { toast } from "sonner";
 import Image from "next/image";
 
 export function LoginForm() {
+
+  // TODO: Remake form with custom hook
   const [values, setValues] = useState({ email: "", password: "" });
   const [remember, setRemember] = useState(false);
 
