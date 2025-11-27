@@ -1,7 +1,9 @@
+import { DocumentScreen } from "@/components/documents/DocumentsScreen";
+
 export default function Documents() {
   return (
     <div>
-      <h1>Welcome to the Documents screen</h1>
+      <DocumentScreen />
     </div>
   );
 }
