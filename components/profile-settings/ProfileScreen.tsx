@@ -1,14 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Sun, Moon, Shield, Badge } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Avatar, AvatarFallback } from "../ui/avatar";
-
-
 
 export default function ProfileScreen() { 
     return (
