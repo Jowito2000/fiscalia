@@ -8,11 +8,19 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 
-export default function rofileScreen() { 
+
+
+export default function ProfileScreen() { 
     return (
         <div className="flex h-screen">      
             <div className={`flex-1 p-10 space-y-6 `}>        
                 <div className="space-y-8">
+                    <div>
+                        <h2>Mi Perfil</h2>
+                        <p className="text-muted-foreground">
+                        Gestiona tu información personal y fiscal
+                        </p>
+                    </div>
                     <Card>
                         <CardHeader className="flex justify-between items-center">
                             <CardTitle>Mi Perfil</CardTitle>

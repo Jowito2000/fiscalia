@@ -5,14 +5,13 @@ import IconPlans from "@/assets/svgs/icon-plans";
 
 
 const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
-  return( 
-    <SidebarProvider>
-      <SettingsSidebar />
-      <main>              
-        {/*<SidebarTrigger /> //Information needed => implementation according to figma?  */}  
-        {children}
-      </main>
-    </SidebarProvider>
+  return(         
+      <SidebarProvider>
+        <SettingsSidebar />
+        <main className="flex-1 overflow-y-auto p-6">                      
+          {children}
+        </main>
+      </SidebarProvider>  
   );
 } 
 
