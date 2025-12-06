@@ -1,5 +1,5 @@
 "use client"
-import { NavigationButton } from "./ui/navigation-button";
+import { NavigationButton } from "../ui/navigation-button";
 
 import {
   MessageSquare,
@@ -51,7 +51,7 @@ const navigationItems = [
       icon: CreditCard,
     },
     { 
-      path: "/settings/profile" as AppView, 
+      path: "/settings" as AppView, 
       label: "Perfil", 
       icon: User 
     }

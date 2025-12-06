@@ -36,7 +36,7 @@ const linkVariants = cva(
 export const NavigationButton = ({ pagename = "home", path = "/", icon, hasVariants = true }: NavigationButtonProps) => {
     const Icon = icon;
     const currentpath = usePathname();
-    const isActive = currentpath === path;
+    const isActive = currentpath === path || currentpath.startsWith(path + '/');
     const variantClasses = hasVariants 
     ? linkVariants({ variant: isActive ? "default" : "ghost" }) 
     : linkVariants({ variant: "ghost" });
