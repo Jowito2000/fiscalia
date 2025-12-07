@@ -1,9 +1,37 @@
-// Se define un tipo que contiene todo los datos de un usuario 
-export interface User {
-  id: string;
-  email: string;
+import { z } from "zod";
+
+export const UserTypes = [
+  "autonomo",
+  "freelance",
+  "empresa",
+  "particular",
+] as const;
+
+export type UserType = typeof UserTypes[number];
+
+export const UserSchema = z.object({
+  id: z.string().optional(),
+  name: z.string(),
+  surname: z.string(),
+  email: z.email(),
+  userType: z.enum(UserTypes),
+  accessToken: z.string().optional(),
+});
+
+export type RegisterFormValues = {
   name: string;
-  lastName: string;
-  userType: string; // e.g., "free", "premium"
-  accessToken: string; // Token de acceso para autenticación
-}
+  surname: string;
+  email: string;
+  password: string;
+  userType: "" | UserType;
+};
+
+export type RegisterDTO = {
+  name: string;
+  surname: string;
+  email: string;
+  password: string;
+  userType: UserType;
+};
+
+export type User = z.infer<typeof UserSchema>;

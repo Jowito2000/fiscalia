@@ -8,6 +8,7 @@ import {
   FolderOpen,
   User,
   CreditCard,
+  Settings2,
 } from "lucide-react";
 
 type AppView =
@@ -54,6 +55,11 @@ const navigationItems = [
       path: "/settings" as AppView, 
       label: "Perfil", 
       icon: User 
+    },
+    { 
+      path: "/firebase_tests" as AppView, 
+      label: "Pruebas", 
+      icon: Settings2 
     }
   ];
 

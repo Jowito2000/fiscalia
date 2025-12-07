@@ -1,13 +1,15 @@
-export interface TaxModel303Data {
-  trimestre: string;
-  baseImponibleGeneral: number;
-  cuotaIVA: number;
-  ivaDeducible: number;
-}
+import { z } from "zod";
 
-export interface TaxModel130Data {
-  trimestre: string;
-  ingresos: number;
-  gastos: number;
-  pagosPrevios: number;
-}
+export const FiscalModelSchema = z.object({
+  id: z.string().optional(),
+  type: z.number(),
+  trimestre: z.string(),
+  baseImponibleGeneral: z.number(),
+  cuotaIVA: z.number(),
+  ivaDeducible: z.number(),
+  ingresos130: z.number(),
+  gastos130: z.number(),
+  pagosPrevios130: z.number(),
+});
+
+export type FiscalModel = z.infer<typeof FiscalModelSchema>;

@@ -7,21 +7,39 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectTrigger, SelectItem, SelectValue, SelectContent } from "@/components/ui/select";
 import { User, Mail, Lock, Briefcase } from "lucide-react";
 import { useRegister } from "@/hooks/useRegister";
+import { RegisterDTO, RegisterFormValues, UserType } from "@/model/UserModel";
+
 
 export function RegisterForm() {
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<RegisterFormValues>({
     name: "",
-    lastName: "",
+    surname: "",
     email: "",
     password: "",
     userType: "",
   });
 
+
+
   const { register, loading } = useRegister();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    register(values);
+
+    if (!values.userType) {
+      alert("Debes seleccionar un tipo de usuario");
+      return;
+    }
+
+    const dto: RegisterDTO = {
+      name: values.name,
+      surname: values.surname,
+      email: values.email,
+      password: values.password,
+      userType: values.userType,
+    };
+
+    register(dto);
   };
 
   return (
@@ -50,8 +68,8 @@ export function RegisterForm() {
           <Input
             placeholder="Pérez García"
             className="pl-10"
-            value={values.lastName}
-            onChange={(e) => setValues({ ...values, lastName: e.target.value })}
+            value={values.surname}
+            onChange={(e) => setValues({ ...values, surname: e.target.value })}
             required
           />
         </div>
@@ -97,7 +115,7 @@ export function RegisterForm() {
 
           <Select
             value={values.userType}
-            onValueChange={(v) => setValues({ ...values, userType: v })}
+            onValueChange={(v) => setValues({ ...values, userType: v as UserType })}
           >
             <SelectTrigger className="pl-10">
               <SelectValue placeholder="Selecciona tu perfil" />
@@ -106,7 +124,7 @@ export function RegisterForm() {
             <SelectContent>
               <SelectItem value="autonomo">Autónomo</SelectItem>
               <SelectItem value="freelance">Freelance</SelectItem>
-              <SelectItem value="pyme">Pequeña Empresa</SelectItem>
+              <SelectItem value="empresa">Pequeña Empresa</SelectItem>
               <SelectItem value="particular">Particular</SelectItem>
             </SelectContent>
           </Select>
