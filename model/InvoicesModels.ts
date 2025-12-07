@@ -13,6 +13,16 @@ export const InvoiceSchema = z.object({
 
 export type Invoice = z.infer<typeof InvoiceSchema>;
 
+export type InvoiceFormData = {
+  clientId: string;
+  concept: string;
+  unitPrice: number;
+  quantity: number;
+  ivaPercentage: number;
+  irpfPercentage: number;
+};
+
+
 export const ClientSchema = z.object({
   id: z.string().optional(),
   name: z.string(),

@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
-import { InvoiceData } from "@/model/InvoicesModels";
+import { InvoiceFormData } from "@/model/InvoicesModels";
 
 export function useInvoice() {
-  const [data, setData] = useState<InvoiceData>({
+  const [data, setData] = useState<InvoiceFormData>({
     clientId: "",
     concept: "",
     unitPrice: 0,

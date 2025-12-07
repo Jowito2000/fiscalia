@@ -34,9 +34,9 @@ export function Model130Data() {
                         <Input
                             type="number"
                             step="0.01"
-                            value={model130.ingresos}
+                            value={model130.ingresos130}
                             onChange={(e) =>
-                                setModel130({ ...model130, ingresos: parseFloat(e.target.value) || 0 })
+                                setModel130({ ...model130, ingresos130: parseFloat(e.target.value) || 0 })
                             }
                             placeholder="15000.00"
                         />
@@ -52,9 +52,9 @@ export function Model130Data() {
                         <Input
                             type="number"
                             step="0.01"
-                            value={model130.gastos}
+                            value={model130.gastos130}
                             onChange={(e) =>
-                                setModel130({ ...model130, gastos: parseFloat(e.target.value) || 0 })
+                                setModel130({ ...model130, gastos130: parseFloat(e.target.value) || 0 })
                             }
                             placeholder="5000.00"
                         />
@@ -68,9 +68,9 @@ export function Model130Data() {
                         <Input
                             type="number"
                             step="0.01"
-                            value={model130.pagosPrevios}
+                            value={model130.pagosPrevios130}
                             onChange={(e) =>
-                                setModel130({ ...model130, pagosPrevios: parseFloat(e.target.value) || 0 })
+                                setModel130({ ...model130, pagosPrevios130: parseFloat(e.target.value) || 0 })
                             }
                             placeholder="0.00"
                         />

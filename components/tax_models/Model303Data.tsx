@@ -35,11 +35,11 @@ export function Model303Data() {
                     <Input
                         type="number"
                         step="0.01"
-                        value={model303.baseImponibleGeneral}
+                        value={model303.baseImponibleGeneral303}
                         onChange={(e) =>
                             setModel303({
                                 ...model303,
-                                baseImponibleGeneral: parseFloat(e.target.value) || 0,
+                                baseImponibleGeneral303: parseFloat(e.target.value) || 0,
                             })
                         }
                         placeholder="10000.00"
@@ -57,9 +57,9 @@ export function Model303Data() {
                     <Input
                         type="number"
                         step="0.01"
-                        value={model303.cuotaIVA}
+                        value={model303.cuotaIVA303}
                         onChange={(e) =>
-                            setModel303({ ...model303, cuotaIVA: parseFloat(e.target.value) || 0 })
+                            setModel303({ ...model303, cuotaIVA303: parseFloat(e.target.value) || 0 })
                         }
                         placeholder="2100.00"
                     />
@@ -73,9 +73,9 @@ export function Model303Data() {
                     <Input
                         type="number"
                         step="0.01"
-                        value={model303.ivaDeducible}
+                        value={model303.ivaDeducible303}
                         onChange={(e) =>
-                            setModel303({ ...model303, ivaDeducible: parseFloat(e.target.value) || 0 })
+                            setModel303({ ...model303, ivaDeducible303: parseFloat(e.target.value) || 0 })
                         }
                         placeholder="500.00"
                     />

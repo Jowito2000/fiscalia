@@ -19,12 +19,12 @@ export function Model130Result() {
                 <div className="space-y-3">
                     <div className="flex justify-between p-3 bg-blue-50 rounded-lg">
                         <span>Ingresos:</span>
-                        <span>{model130.ingresos.toFixed(2)} €</span>
+                        <span>{model130.ingresos130!.toFixed(2)} €</span>
                     </div>
 
                     <div className="flex justify-between p-3 bg-blue-50 rounded-lg">
                         <span>Gastos:</span>
-                        <span>- {model130.gastos.toFixed(2)} €</span>
+                        <span>- {model130.gastos130!.toFixed(2)} €</span>
                     </div>
 
                     <div className="flex justify-between p-3 bg-purple-50 rounded-lg">
@@ -39,7 +39,7 @@ export function Model130Result() {
 
                     <div className="flex justify-between p-3 bg-purple-50 rounded-lg">
                         <span>Pagos previos:</span>
-                        <span>- {result130.pagosPrevios.toFixed(2)} €</span>
+                        <span>- {result130.pagosPrevios!.toFixed(2)} €</span>
                     </div>
 
                     <div className="h-px bg-border" />

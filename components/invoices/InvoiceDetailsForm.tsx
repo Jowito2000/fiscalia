@@ -1,4 +1,4 @@
-import { InvoiceData } from "@/model/InvoicesModels";
+import { InvoiceFormData } from "@/model/InvoicesModels";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
@@ -6,8 +6,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 
 export function InvoiceDetailsForm({ invoiceData, setInvoiceData }: 
   { 
-    invoiceData: InvoiceData, 
-    setInvoiceData: (data: InvoiceData) => void 
+    invoiceData: InvoiceFormData, 
+    setInvoiceData: (data: InvoiceFormData) => void 
   }) {
   return (
     <Card>

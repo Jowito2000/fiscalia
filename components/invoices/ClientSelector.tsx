@@ -5,14 +5,14 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
-import { Client, InvoiceData } from "@/model/InvoicesModels";
+import { Client, Invoice, InvoiceFormData } from "@/model/InvoicesModels";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Plus } from "lucide-react";
 
 interface ClientSelectorProps {
     clients: Client[];
-    invoiceData: InvoiceData;
-    setInvoiceData: (data: InvoiceData) => void;
+    invoiceData: InvoiceFormData;
+    setInvoiceData: (data: InvoiceFormData) => void;
     addClient: (data: Client) => Promise<boolean>;
 }
 

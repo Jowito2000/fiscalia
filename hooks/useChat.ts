@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
-import { Message } from '@/model/MessageModel';
+import { Attachment, AttachmentSchema, FileType, FileTypes, Message } from '@/model/MessageModel';
 import { firstChatMessage } from '@/data/firstChatMessage';
 
 export function useChat() {
@@ -40,20 +40,24 @@ export function useChat() {
 
   // ----------- Subida de archivo ----------
   const uploadFile = (file: File) => {
-    const fileType = file.type.includes('pdf')
-      ? 'PDF'
-      : file.type.includes('image')
-      ? 'Imagen'
-      : 'Documento';
+    const fileType: FileType =
+      file.type.includes("pdf") ? "PDF"
+      : file.type.includes("image") ? "Imagen"
+      : "Documento";
 
     toast.success(`${fileType} "${file.name}" cargado. Procesando...`);
+
+    const attachment: Attachment = {
+      type: fileType,
+      name: file.name,
+    };
 
     const userMessage: Message = {
       id: Date.now().toString(),
       role: 'user',
       content: `He adjuntado un archivo: ${file.name}`,
       timestamp: new Date(),
-      attachments: [{ type: fileType, name: file.name }],
+      attachments: [attachment],
     };
 
     setMessages((prev) => [...prev, userMessage]);

@@ -23,12 +23,12 @@ export function Model303Result() {
                 <div className="space-y-3">
                     <div className="flex justify-between p-3 bg-blue-50 rounded-lg">
                         <span>Cuota devengada (IVA repercutido):</span>
-                        <span>{result303.cuotaDevengada.toFixed(2)} €</span>
+                        <span>{result303.cuotaDevengada!.toFixed(2)} €</span>
                     </div>
 
                     <div className="flex justify-between p-3 bg-blue-50 rounded-lg">
                         <span>Cuota deducible (IVA soportado):</span>
-                        <span>{result303.cuotaDeducible.toFixed(2)} €</span>
+                        <span>{result303.cuotaDeducible!.toFixed(2)} €</span>
                     </div>
 
                     <Separator />

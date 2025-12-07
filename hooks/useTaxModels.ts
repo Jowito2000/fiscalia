@@ -1,20 +1,21 @@
 import { useState } from "react";
-import { TaxModel303Data, TaxModel130Data } from "../model/TaxModels";
+import { FiscalModel } from "../model/TaxModels";
 import { toast } from "sonner";
 
 export function useTaxModel303() {
-    const [model303, setModel303] = useState<TaxModel303Data>({
+    const [model303, setModel303] = useState<FiscalModel>({
+        type: 303,
         trimestre: '1T',
-        baseImponibleGeneral: 0,
-        cuotaIVA: 0,
-        ivaDeducible: 0,
+        baseImponibleGeneral303: 0,
+        cuotaIVA303: 0,
+        ivaDeducible303: 0,
     });
 
   const calculateModel303 = () => {
-    const resultado = model303.cuotaIVA - model303.ivaDeducible;
+    const resultado = model303.cuotaIVA303! - model303.ivaDeducible303!;
     return {
-      cuotaDevengada: model303.cuotaIVA,
-      cuotaDeducible: model303.ivaDeducible,
+      cuotaDevengada: model303.cuotaIVA303,
+      cuotaDeducible: model303.ivaDeducible303,
       resultado: resultado,
       aIngresar: resultado > 0 ? resultado : 0,
       aCompensar: resultado < 0 ? Math.abs(resultado) : 0,
@@ -34,22 +35,23 @@ export function useTaxModel303() {
 }
 
 export function useTaxModel130() {
-  const [model130, setModel130] = useState<TaxModel130Data>({
+  const [model130, setModel130] = useState<FiscalModel>({
+    type: 130,
     trimestre: '1T',
-    ingresos: 0,
-    gastos: 0,
-    pagosPrevios: 0,
+    ingresos130: 0,
+    gastos130: 0,
+    pagosPrevios130: 0,
   });
 
   const calculateModel130 = () => {
-    const rendimientoNeto = model130.ingresos - model130.gastos;
+    const rendimientoNeto = model130.ingresos130! - model130.gastos130!;
     const cuotaTributaria = rendimientoNeto * 0.2; // 20% IRPF
-    const resultado = cuotaTributaria - model130.pagosPrevios;
+    const resultado = cuotaTributaria - model130.pagosPrevios130!;
 
     return {
       rendimientoNeto,
       cuotaTributaria,
-      pagosPrevios: model130.pagosPrevios,
+      pagosPrevios: model130.pagosPrevios130,
       resultado: resultado > 0 ? resultado : 0,
     };
   };
