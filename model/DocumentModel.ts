@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const DocumentSchema = z.object({
-  id: z.string().optional(),
+  id: z.string(),
   userId: z.string(),
   name: z.string(),
   type: z.enum(["invoice", "tax-model", "receipt", "other"]),
