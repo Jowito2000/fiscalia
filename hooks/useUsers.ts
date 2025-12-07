@@ -8,7 +8,7 @@ import {
   fetchUsers,
   updateUserName,
   User,
-} from "@/services/usersService";
+} from "@/services/testsService";
 
 export function useUsers() {
   const [users, setUsers] = useState<User[]>([]);

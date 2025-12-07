@@ -5,7 +5,7 @@ export const MessageSchema = z.object({
   role: z.enum(["user", "assistant"]),
   content: z.string(),
   timestamp: z.date(),
-  attachments: z.array(z.string()).optional(),
+  attachments: z.array(z.object()).optional(),
   sources: z.array(z.string()).optional(),
   userId: z.string().optional()
 });

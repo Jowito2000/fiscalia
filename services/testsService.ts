@@ -1,4 +1,3 @@
-// src/services/usersService.ts
 import {
   collection,
   addDoc,

@@ -8,6 +8,8 @@ import { Popover,
 
 import { NavigationButton } from "../ui/navigation-button";
 import { Switch } from "../ui/switch";
+import { Button } from "../ui/button";
+import { logoutUser } from "@/services/authServices";
 
 export const HeaderBar = () => {
 
@@ -29,6 +31,8 @@ export const HeaderBar = () => {
                   hasVariants={false}
                 />                            
                 <Switch />
+
+                <Button variant="destructive" onClick={logoutUser}>Cerrar sesión</Button>
             </PopoverContent>
           </Popover>
        </div>                     

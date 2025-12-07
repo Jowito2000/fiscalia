@@ -9,17 +9,27 @@ export function useRegister() {
   const router = useRouter();
 
   const register = async (data: RegisterDTO) => {
-    setLoading(true);
     try {
-      await registerUser(data);
-      console.log("Registrando en la Base de Datos");
+      setLoading(true);
+      const userCredential = await registerUser(data);
+
       toast.success("Cuenta creada exitosamente");
-      //localStorage.setItem("fiscalIASession", JSON.stringify(data.user));
 
-      router.push("/");
+      // Esperamos unos ms para permitir que useAuth detecte el cambio
+      setTimeout(() => router.push("/"), 200);
 
-    } catch {
-      toast.error("Error de conexión");
+    } catch (err: any) {
+      console.error(err);
+
+      let message = "Error desconocido";
+
+      if (err.code === "auth/email-already-in-use")
+        message = "El correo ya está registrado";
+      else if (err.code === "auth/weak-password")
+        message = "La contraseña es demasiado débil";
+
+      toast.error(message);
+
     } finally {
       setLoading(false);
     }

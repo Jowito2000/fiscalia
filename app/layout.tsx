@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono,Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
+import AuthLayout from "./auth-layout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,12 +31,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} antialiased`}
-      >
+    <html lang="es">
+      <body className={`${inter.variable} antialiased`}>
         <Toaster position="bottom-right" richColors />
-        {children}
+
+        <AuthLayout>
+          {children}
+        </AuthLayout>
       </body>
     </html>
   );

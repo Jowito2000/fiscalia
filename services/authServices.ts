@@ -41,6 +41,8 @@ export async function registerUser(data: {
 
 
 export async function loginUser(email: string, password: string) {
+  console.log("email:", email, typeof email);
+  console.log("password:", password, typeof password);
   return await signInWithEmailAndPassword(auth, email, password);
 }
 
