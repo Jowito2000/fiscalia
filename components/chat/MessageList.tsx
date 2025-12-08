@@ -7,7 +7,6 @@ import { Message } from '@/model/MessageModel';
 interface MessageListProps {
   messages: Message[];
   isLoading: boolean;
-  loadMore: () => void;
 }
 
 export function MessageList({ messages, isLoading }: MessageListProps) {
