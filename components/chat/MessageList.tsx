@@ -10,14 +10,8 @@ interface MessageListProps {
   loadMore: () => void;
 }
 
-export function MessageList({ messages, isLoading, loadMore }: MessageListProps) {
+export function MessageList({ messages, isLoading }: MessageListProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  const handleScroll = () => {
-    if ((scrollRef.current?.scrollTop ?? Infinity) < 50) {
-      loadMore();
-    }
-  };
 
   // Scroll automático
   useEffect(() => {
