@@ -7,12 +7,17 @@ import { useEffect } from "react";
 
 const PUBLIC_ROUTES = ["/login"];
 
-export default function AuthLayout({ children } : { children: React.ReactNode }) {
+export default function AuthLayout({ children }: { children: React.ReactNode }) {
   const { currentUser, loading } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
 
   const isPublic = PUBLIC_ROUTES.includes(pathname);
+
+  const shouldBlockUI =
+    loading ||
+    (!currentUser && !isPublic) ||
+    (currentUser && isPublic);
 
   useEffect(() => {
     if (!loading) {
@@ -25,19 +30,14 @@ export default function AuthLayout({ children } : { children: React.ReactNode })
     }
   }, [currentUser, loading, pathname, isPublic, router]);
 
-  // Estado de carga
-  if (loading) {
+  if (shouldBlockUI) {
     return (
       <div className="h-screen flex items-center justify-center">
-        <>
-          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          Cargando...
-        </>
+        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+        Cargando...
       </div>
     );
   }
-
-  if (!currentUser && !isPublic) return null;
 
   return <>{children}</>;
 }
