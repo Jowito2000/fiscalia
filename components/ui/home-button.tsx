@@ -11,7 +11,7 @@ export const HomeButton = () => {
                 origin-left"             
                 href="/"
                 >
-            <img src="IconoFiscalIAVectorSinFondo.svg" className="w-8 h-8" />
+            <img src="/IconoFiscalIAVectorSinFondo.svg" className="w-8 h-8" />
                 <div>
                     <h1 className="text-xl">Fiscal IA</h1>
                     <p className="text-xs text-muted-foreground">
