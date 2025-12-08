@@ -20,11 +20,6 @@ export function ClientSelector({ clients, invoiceData, setInvoiceData, addClient
     const [newClient, setNewClient] = useState({ name: "", nif: "", address: "" });
     const [showNewClientForm, setShowNewClientForm] = useState(false);
 
-    const save = async () => {
-        const ok = await addClient(newClient);
-        if (ok) setShowNewClientForm(false);
-    };
-
     return (
         <Card>
             <CardHeader>
@@ -68,7 +63,10 @@ export function ClientSelector({ clients, invoiceData, setInvoiceData, addClient
                     />
                   </div>
                   <div className="flex space-x-2">
-                    <Button onClick={() => addClient(newClient)} size="sm">
+                    <Button onClick={() => {
+                      addClient(newClient); 
+                      setShowNewClientForm(false)
+                      }} size="sm">
                       Guardar
                     </Button>
                     <Button

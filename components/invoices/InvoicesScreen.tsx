@@ -22,7 +22,7 @@ export default function InvoicesScreen() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="space-y-6">
-          <EmisorCard user={{ name: "Usuario", lastName: "Apellido", email: "email@ejemplo.com" }} />
+          <EmisorCard />
 
           <ClientSelector
             clients={clients}
@@ -35,7 +35,6 @@ export default function InvoicesScreen() {
         </div>
 
         <InvoicePreview
-          user={{ name: "Usuario", lastName: "Apellido", email: "email@ejemplo.com" }}
           client={clients.find(c => c.id === data.clientId)}
           totals={calculateTotals()}
           invoiceData={data}

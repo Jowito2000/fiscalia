@@ -1,7 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { useUser } from "@/contexts/UserContext";
 
-export function EmisorCard({ user }: any) {
+export function EmisorCard() {
+  const user = useUser();
   return (
     <Card>
         <CardHeader>
@@ -10,11 +12,11 @@ export function EmisorCard({ user }: any) {
         <CardContent className="space-y-3">
             <div>
             <Label className="font-bold">Nombre</Label>
-            <p>{'Ejemplo Nombre'} {'Ejemplo de Apellido'}</p>
+            <p>{user?.name} {user?.surname}</p>
             </div>
             <div>
             <Label className="font-bold">Email</Label>
-            <p>{'email@ejemplo.com'}</p>
+            <p>{user?.email}</p>
             </div>
         </CardContent>
     </Card>

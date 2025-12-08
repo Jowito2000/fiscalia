@@ -19,7 +19,13 @@ export const MessageSchema = z.object({
   id: z.string().optional(),
   role: z.enum(["user", "assistant"]),
   content: z.string(),
-  timestamp: z.date(),
+  timestamp: z.union([
+    z.date(),
+    z.any().transform((value) => {
+      if (value?.toDate) return value.toDate();
+      return new Date(value);
+    }),
+  ]),
   attachments: z.array(AttachmentSchema).optional(),
   sources: z.array(z.string()).optional(),
   userId: z.string().optional(),

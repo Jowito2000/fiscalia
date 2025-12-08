@@ -7,10 +7,17 @@ import { Message } from '@/model/MessageModel';
 interface MessageListProps {
   messages: Message[];
   isLoading: boolean;
+  loadMore: () => void;
 }
 
-export function MessageList({ messages, isLoading }: MessageListProps) {
+export function MessageList({ messages, isLoading, loadMore }: MessageListProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if ((scrollRef.current?.scrollTop ?? Infinity) < 50) {
+      loadMore();
+    }
+  };
 
   // Scroll automático
   useEffect(() => {

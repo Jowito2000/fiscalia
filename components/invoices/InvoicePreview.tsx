@@ -1,11 +1,26 @@
-// components/invoices/InvoicePreview.tsx
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { FileText, Save, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useUser } from "@/contexts/UserContext";
+import { Client } from "@/model/InvoicesModels";
+import { InvoiceFormData } from "@/model/InvoicesModels";
 
-export function InvoicePreview({ user, client, totals, invoiceData, onSave, onSavePDF }: any) {
+interface InvoicePreviewProps {
+  client: Client | undefined;
+  totals: {
+    subtotal: number;
+    iva: number;
+    irpf: number;
+    total: number;
+  };
+  invoiceData: InvoiceFormData;
+  onSave: () => void;
+  onSavePDF: () => void;
+}
+
+export function InvoicePreview({ client, totals, invoiceData, onSave, onSavePDF }: InvoicePreviewProps) {
+  const user = useUser();
   return (
     <div>
           <Card className="sticky top-6">
@@ -21,8 +36,8 @@ export function InvoicePreview({ user, client, totals, invoiceData, onSave, onSa
             <CardContent className="space-y-4">
               <div>
                 <p className="text-sm text-muted-foreground">De:</p>
-                <p>{user.name || 'Usuario'} {user.lastName || ''}</p>
-                <p className="text-sm">{user.email || ''}</p>
+                <p>{user?.name} {user?.surname}</p>
+                <p className="text-sm">{user?.email}</p>
               </div>
 
               <Separator />

@@ -1,4 +1,4 @@
-import ResourcesScreen from "@/components/resources/ResourcesScreen";
+import ResourcesScreen from "@/components/resources_screen/ResourcesScreen";
 
 export default function Resources() {
   return (

@@ -4,6 +4,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useRouter, usePathname } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { useEffect } from "react";
+import { UserProvider } from "@/contexts/UserContext";
 
 const PUBLIC_ROUTES = ["/login"];
 
@@ -39,5 +40,9 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
     );
   }
 
-  return <>{children}</>;
+  return (
+    <UserProvider>
+      {children}
+    </UserProvider>
+  );
 }
